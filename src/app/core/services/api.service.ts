@@ -4,8 +4,9 @@ import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { JwtService } from './jwt.service';
-import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { catchError } from 'rxjs/operators';
+
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable.js';
 
 @Injectable()
 export class ApiService {
