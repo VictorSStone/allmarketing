@@ -2,8 +2,8 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { AuthModule } from './auth/auth.module';
-import { HomeModule } from './home/home.module';
+import { AuthModule } from './user/auth/auth.module';
+import { StartModule } from './start/start.module';
 import {
   FooterComponent,
   HeaderComponent,
@@ -18,7 +18,7 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     CoreModule,
     SharedModule,
-    HomeModule,
+    StartModule,
     AuthModule,
     AppRoutingModule
   ],

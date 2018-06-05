@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { ArticleListConfig, TagsService, UserService } from '../core';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-start-page',
+  templateUrl: './start.component.html',
+  styleUrls: ['./start.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class StartComponent implements OnInit {
   constructor(
     private router: Router,
     private tagsService: TagsService,

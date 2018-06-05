@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { UserService } from '../core';
-import { map ,  take } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 
 @Injectable()
-export class NoAuthGuard implements CanActivate {
+export class StartAuthResolver implements Resolve<boolean> {
   constructor(
     private router: Router,
     private userService: UserService
   ) {}
 
-  canActivate(
+  resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> {
 
-    return this.userService.isAuthenticated.pipe(take(1), map(isAuth => !isAuth));
+    return this.userService.isAuthenticated.pipe(take(1));
 
   }
 }

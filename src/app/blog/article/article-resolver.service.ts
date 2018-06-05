@@ -2,14 +2,15 @@ import { Injectable, } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { Profile, ProfilesService } from '../core';
+import { Article, ArticlesService, UserService } from '../../core';
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
-export class ProfileResolver implements Resolve<Profile> {
+export class ArticleResolver implements Resolve<Article> {
   constructor(
-    private profilesService: ProfilesService,
-    private router: Router
+    private articlesService: ArticlesService,
+    private router: Router,
+    private userService: UserService
   ) {}
 
   resolve(
@@ -17,8 +18,7 @@ export class ProfileResolver implements Resolve<Profile> {
     state: RouterStateSnapshot
   ): Observable<any> {
 
-    return this.profilesService.get(route.params['username'])
+    return this.articlesService.get(route.params['slug'])
       .pipe(catchError((err) => this.router.navigateByUrl('/')));
-
   }
 }
