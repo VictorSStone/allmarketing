@@ -1,9 +1,9 @@
 import { Injectable, } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 import { Article, ArticlesService, UserService } from '../../core';
-import { catchError } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators/catchError';
 
 @Injectable()
 export class ArticleResolver implements Resolve<Article> {

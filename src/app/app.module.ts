@@ -1,37 +1,31 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material'
-import { MatSidenavModule } from '@angular/material/sidenav';
-
+import { LayoutModule } from './shared/layout/layout.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './user/auth/auth.module';
 import { StartModule } from './start/start.module';
-import {
-  FooterComponent,
-  HeaderComponent,
-  SidebarComponent,
-  SharedModule
-} from './shared';
+import { SharedModule } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
+import 'hammerjs'; // Needed for Touch functionality of Material Components
+
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, HeaderComponent, SidebarComponent],
+  declarations: [AppComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     CoreModule,
+    LayoutModule,
     SharedModule,
     StartModule,
     AuthModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatSidenavModule
-  ],
-  exports: [
-    MatSidenavModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

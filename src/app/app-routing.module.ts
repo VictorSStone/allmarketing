@@ -1,8 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { MainFrameComponent } from './shared/layout/main-frame/main-frame.component';
+import { StartAuthResolver } from './start/start-auth-resolver.service';
 
 const routes: Routes = [
   {
+    path: '',
+    component: MainFrameComponent,
+    resolve: {
+      isAuthenticated: StartAuthResolver
+    },
+    loadChildren: './start/start.module#StartModule'
+ },
+ {
     path: 'settings',
     loadChildren: './user/settings/settings.module#SettingsModule'
   },
@@ -27,6 +37,11 @@ const routes: Routes = [
     // of the modules (PRs welcome 😉)
     preloadingStrategy: PreloadAllModules
   })],
-  exports: [RouterModule]
+  exports: [
+    RouterModule
+  ],
+  providers: [
+    StartAuthResolver
+  ]
 })
 export class AppRoutingModule {}

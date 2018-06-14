@@ -1,0 +1,30 @@
+<loading-indicator></loading-indicator>
+
+<mat-drawer-container class="main-frame-container">
+
+  <mat-drawer-content class="drawer-content">
+    <backdrop></backdrop>
+
+    <div class="wrapper" fxFlex="grow" fxLayout="row">
+
+      <!-- SIDENAV -->
+      <sidenav class="sidenav"></sidenav>
+      <!-- END SIDENAV -->
+
+      <div class="content-wrapper" fxFlex="grow" fxLayout="column">
+        <!-- CONTENT -->
+        <div class="main-container" #scrollContainer fxFlex="grow">
+          <router-outlet (activate)="onActivate($event, scrollContainer)"></router-outlet>
+        </div>
+        <!-- END CONTENT -->
+
+        <!-- FOOTER -->
+        <footer></footer>
+        <!-- END FOOTER -->
+      </div>
+
+    </div>
+  </mat-drawer-content>
+
+
+</mat-drawer-container>
